@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Module 1 Project - Questions and Visualizations "
-date:       2021-02-03 16:32:36 +0000
+date:       2021-02-03 11:32:37 -0500
 permalink:  module_1_project_-_questions_and_visualizations
 ---
 
