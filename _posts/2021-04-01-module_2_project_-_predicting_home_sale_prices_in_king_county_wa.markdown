@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Module 2 Project - Predicting Home Sale Prices in King County, WA"
-date:       2021-04-01 18:22:16 +0000
+date:       2021-04-01 14:22:16 -0400
 permalink:  module_2_project_-_predicting_home_sale_prices_in_king_county_wa
 ---
 
@@ -22,11 +22,11 @@ df.rename(columns={'yr_renovated': 'renovated'}, inplace=True)
 
 The existing 'yr_renovated' column listed either a year or a 0, and I decided to categorize these based on decade of renovation.  Pre-1985 renovations didn't have too much of an effect on sale prices, and so these could be categorized with the non-renovated homes.  While the vast majority of homes ended up with a 0, the effects of any renovation at all were relevant with final sale price.
 
-<img src="https://github.com/JonahFlateman/dsc-mod-2-project-v2-1-online-ds-sp-000/blob/master/renovated.png", alt="Renovation vs. Sale Price", width=600>
+<img src="https://github.com/JonahFlateman/dsc-mod-2-project-v2-1-online-ds-sp-000/blob/master/renovated.png"  alt="Renovation vs. Sale Price" width=600>
 
 Using regplots to check for linearity helped identify interior square footage, or 'sqft_living' as a reliable continuous variable.
 
-<img src="https://github.com/JonahFlateman/dsc-mod-2-project-v2-1-online-ds-sp-000/blob/master/sqft_living.png", alt='Interior Sqare Footage vs. Sale Price", width=600>
+<img src="https://github.com/JonahFlateman/dsc-mod-2-project-v2-1-online-ds-sp-000/blob/master/sqft_living.png"  alt='Interior Sqare Footage vs. Sale Price" width=600>
 
 After checking for multicollinearity, I dropped all other square footage columns.  Keeping most other categorical variables, I engineered 'zipcode_category' by taking the mean of each price per ZIP and splitting each home into four quantiles.
 
