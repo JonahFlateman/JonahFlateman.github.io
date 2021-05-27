@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Churn in Telecom's Dataset: The Right Questions"
-date:       2021-05-27 18:10:26 +0000
+date:       2021-05-27 14:10:27 -0400
 permalink:  churn_in_telecoms_dataset_the_right_questions
 ---
 
@@ -40,7 +40,7 @@ grid_search.fit(X_train, y_train)
 
 The idea was to focus on recall, that is to minimize false negatives or our model falsely predicting a customer will not churn.  The reverse would be inconvenient but not nearly as consequential from a business perspective.  To that end I relied heavily on sklearn.metrics packages such as precision and recall scores and confusion matrices.
 
-![Confusion Matrix](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/confusionmatrix.pnghttp://)
+![Confusion Matrix](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/confusionmatrix.png?raw=true)
 
 I was fairly pleased with the above confusion matrix on the test set and my metrics gave me a recall score of approximately 0.85.  After trying out a few more models using Logistic Regression, K-Nearest Neighbors, and AdaBoost, it was Gradient Boosting that produced numbers similar to my Random Forest model, so I proceeded to focus only on those two for the rest of the process.
 
@@ -70,9 +70,9 @@ grid_search.fit(X_train_resampled, y_train_resampled)
 
 It should be noted that these grid parameters were entered manually after several search runs.  Being that GridSearch can take some time depending on how many parameters are entered, I wanted my notebook to be able to be run fairly quickly.  This fit produced no false positives or negatives in the training set and a recall score of 0.83 in the test set - not bad but the model was overfit.  Still, this along with the Random Forest model could be used with some additional tuning and depending on the business problem at hand.  Let's say we chose the Random Forest model and wanted to make some business recommendations:
 
-![Feature Importances](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/featureimportance.pnghttp://)
+![Feature Importances](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/featureimportance.png?raw=true)
 
-![Customer Churn Bar Plot](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/customerchurnbar.pnghttp://)
+![Customer Churn Bar Plot](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/customerchurnbar.png?raw=true)
 
 As customer service calls leads here in terms of importance to our model, we can see from the bar graph that four or more calls highly increases probability of churn.  We could make sure to place special attention on certain accounts which are approaching four calls to better understand the needs of these customers.  This could be done in conjunction with a reduction in day rates or new offers for plans specific to daytime minutes use - as these are highly correlated to churn rate, we would need to balance the value of the individual accounts with any special offers we make to these customers.
 
@@ -96,6 +96,6 @@ exp = explainer.explain_instance(
 exp.show_in_notebook(show_table=True)
 ```
 
-![LIME table](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/limetable.png)
+![LIME table](https://github.com/JonahFlateman/dsc-mod-3-project-v2-1-online-ds-sp-000/blob/master/image/limetable.png?raw=true)
 
 This shows us the prediction probabilities, the most important features, and the values of the top variables.  In this case we used the Gradient Boosting Classifier since it did not include any dummy variables which are less useful for a table such as this.
